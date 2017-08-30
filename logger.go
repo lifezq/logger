@@ -21,19 +21,22 @@ func init() {
 
 	flag.Parse()
 
-	fi, err := os.OpenFile(fmt.Sprintf("%s/%s-info-%s-%d.log", *ldir, filepath.Base(os.Args[0]), time.Now().Format("200601021504"), os.Getpid()), os.O_WRONLY|os.O_CREATE, 0644)
+	fi, err := os.OpenFile(fmt.Sprintf("%s/%s-info-%s-%d.log", *ldir, filepath.Base(os.Args[0]),
+		time.Now().Format("200601021504"), os.Getpid()), os.O_WRONLY|os.O_CREATE, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
 	infoLog = log.New(fi, "[INFO] ", log.LstdFlags|log.Llongfile)
 
-	fw, err := os.OpenFile(fmt.Sprintf("%s/%s-warn-%s-%d.log", *ldir, filepath.Base(os.Args[0]), time.Now().Format("200601021504"), os.Getpid()), os.O_WRONLY|os.O_CREATE, 0644)
+	fw, err := os.OpenFile(fmt.Sprintf("%s/%s-warn-%s-%d.log", *ldir, filepath.Base(os.Args[0]),
+		time.Now().Format("200601021504"), os.Getpid()), os.O_WRONLY|os.O_CREATE, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
 	warnLog = log.New(fw, "[WARN] ", log.LstdFlags|log.Llongfile)
 
-	fe, err := os.OpenFile(fmt.Sprintf("%s/%s-error-%s-%d.log", *ldir, filepath.Base(os.Args[0]), time.Now().Format("200601021504"), os.Getpid()), os.O_WRONLY|os.O_CREATE, 0644)
+	fe, err := os.OpenFile(fmt.Sprintf("%s/%s-error-%s-%d.log", *ldir, filepath.Base(os.Args[0]),
+		time.Now().Format("200601021504"), os.Getpid()), os.O_WRONLY|os.O_CREATE, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
